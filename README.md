@@ -1,4 +1,4 @@
-# Tewiki Asteroids and Comers
+# Tewiki Asteroids and Comets
 Tewiki Asteroid Bot is a Wikipedia bot that aims to generate wiki articles primarily in the celestial objects (asteroids, comets, trans-neptunian objects) domain. The bot currently focuses on articles in the Telugu language, however the system architecture is language-agnostic and can be easily extended to other languages such as Tamil, Hindi, etc. 
 
 ## Architecture
