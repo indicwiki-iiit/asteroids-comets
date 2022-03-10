@@ -1,0 +1,167 @@
+{%- macro infobox(heading,name_code,epoch,semi_major_axis,eccentricity,inclination,ascending_node_longitude,aphelion,perihelion,periapsis_argument,mean_anomaly,avg_orbit_speed,orbit_period_days,rotation_period,diameter,magnitude) -%}
+{{'{{Infobox '}}
+| bodystyle = width:25em;text-align:center;
+| abovestyle = background-color:#cfc;
+| headerstyle = background-color:#ccf;text-align:center;
+| labelstyle = background-color:#ddf; width:20%;text-align:left;
+| title  =   {{heading }} {{name_code }}
+| label1 = ఈపోక్
+| data1 = {{epoch}}
+| header2 = ఆర్బిటాల్ విలువలు
+| label3 = బృహదక్షం (సెమీ మేజర్ యాక్సిస్)
+| data3 = {{semi_major_axis}} ఆస్ట్రోనామికల్ యూనిట్లు
+| label4 = వికేంద్రత (ఎక్సేంట్రిసిటీ)
+| data4 = {{eccentricity}}
+| label5 = మొగ్గుదల (ఇంక్లినేషన్)
+| data5 = {{inclination}} డిగ్రీలు
+| label6 = ఎసెండింగ్ నోడ్ లాంగిట్యూడ్
+| data6 = {{ascending_node_longitude}} డిగ్రీలు
+| label7 = పెరియాప్సిస్ ఆర్గుమెంట్
+| data7 = {{periapsis_argument}} డిగ్రీలు
+| label8 = మీన్ అనామలీ
+| data8 = {{mean_anomaly}} డిగ్రీలు
+| label9 = కక్ష్య వేగం
+| data9 = {{avg_orbit_speed}} కి.మీ/సె
+| label10 = కక్ష్య కాలం
+| data10 = {{orbit_period_days}} రోజులు
+| header11 = భౌతిక లక్షణాలు
+| label12 = ఆఫీలియాన్
+| data12 = {{aphelion}} ఆస్ట్రోనామికల్ యూనిట్లు
+| label13 = పెరిహీలియాన్
+| data13 = {{perihelion}} ఆస్ట్రోనామికల్ యూనిట్లు
+| label14 = వ్యాసం
+| data14 = {{diameter}} కి.మీ
+| label15 = పరిమాణం (H)
+| data15 = {{magnitude}}
+    {{'}}\n'}}
+{%- endmacro -%}
+
+
+
+{%- macro intro(heading,category,name_code) -%}
+    {%- set line1 = [heading, ' అనేది ', category, '. ']|join('') -%}
+        {{ [ line1 ] | random }}
+    {%- if name_code != '' -%}
+        {%- set line1 = [' దీనిని ', name_code, ' అనే ప్రొవిజనల్ పేరుతో కూడా గుర్తిస్తారు. ']|join('') -%}
+        {%- set line2 = [' దీని ప్రొవిజనల్ పేరు ', name_code, '. ']|join('') -%}
+        {{ [ line1, line2 ] | random }}
+        {{ '\n' }}
+    {%- endif -%}
+
+    {%- if 'గ్రహశకలం' in category -%}
+        {%- set line1a= "సౌర మండలం లో గ్రహాల ([[Planet]]) మాదిరిగా సూర్యుని చుట్టూ వేగంగా తిరిగే చిన్న రాళ్ళ లాంటి వాటిని గ్రహశకలాలు ([[Asteroid]])) అంటారు. "-%}
+        {%- set line1b= "సౌర మండలం లో కొన్ని రాళ్లు గ్రహాల ([[Planet]]) లాగే సూర్యుని చుట్టూ వేగంగా తిరుగుతాయి. వాటిని గ్రహశకలాలు ([[Asteroid]]) అంటారు. " -%}
+	    {{ [ line1a, line1b ] | random }}
+        {%- set line2a= "1801 లో మొదటిసారిగా శాస్త్రవేత్తలు సెరిస్ అనే గ్రహశకలాన్ని గుర్తించారు. "-%}
+        {%- set line2b= "శాస్త్రవేత్తలు మొట్ట మొదటిసారిగా 1801 లో ఒక గ్రహశకలాన్ని గుర్తించి దానికి సెరిస్ అని పేరు పెట్టారు. " -%}
+        {%- set line2c= "ఇప్పటివరకు గుర్తించిన మొదటి గ్రహశకలం పేరు సెరిస్. దీనిని 1801 లో శాస్త్రవేత్తలు గుర్తించారు. " -%}
+	    {{ [ line2a, line2b, lince2c ] | random }}
+        {{- "2020 నాటికి సౌర మండలం లో సుమారు 10 లక్షలకు పైగా గ్రహశకలాలున్నాయని అంచనా.\n" -}}
+    
+
+    {%- elif 'తోకచుక్క' in category -%}
+        {%- set line1a= "తోకచుక్కలు ([[Comet]]) అనేవి సౌర మండలం లో ఉండే మంచు, వాయువుల తో కూడిన కొన్ని రాళ్లు. "-%}
+        {%- set line1b= "సౌర మండలం లో మంచూ పలు రకాల వాయువులూ కూడిన రాళ్ల ని తోకచుక్కలు ([[Comet]]) అంటారు. " -%}
+	    {{ [ line1a, line1b ] | random }}
+        {{- "ఇవి భూమి కంటే కొన్ని వందల రేట్లు వేగంగా ప్రయాణిస్తూ ఉంటాయి. " -}}
+        {%- set line2a= "ఇవి సూర్యునికి దగ్గరకి చేరుకున్నప్పుడు వేడెక్కి వాటిలో ఉండే వాయువులు విడుదల అవుతాయి. అంత వేగం తో విడుదల అయిన వాయువులు తోక రూపం లో కనబడటం వల్ల తోకచుక్కలకి ఆ పేరు వచ్చింది. "-%}
+        {%- set line2b= "అంత వేగంగా సూర్యుడిని సమీపించినప్పుడు వీటిల్లో ఉండే వాయువులు విడుదల అయ్యి చూడటానికి తోక రూపం లో కనిపిస్తాయి. అందుకు వీటిని తోకచుక్కలు అంటారు. " -%}
+	    {{ [ line2a, line2b ] | random }}
+    {%- endif -%}
+    {{"\nవీటిని ధృవీకరించి వాటి గురించిన సమాచారం భద్రపరిచే బాధ్యత అంతర్జాతీయ ఖగోళ సంఘం ([https://www.iau.org/ International Astronomical Union]) నిర్వర్తిస్తుంది." }}
+{{- "\n" -}}
+{%- endmacro -%}
+
+
+
+
+{%- macro size_attributes(heading, perihelion, aphelion, is_near_earth, is_potentially_hazardous, size_comparison_object, diameter, magnitude, category) -%}
+    {{ "\n==భౌతిక లక్షణాలు==\n\n" }}
+    {{- "అంతరిక్షంలో ఉండే గ్రహాల కక్ష్య లో సూర్యునికి అన్నిటికంటే దగ్గర స్థానాన్ని పెరిహీలియాన్ (Perihelion), దూరపు స్థానాన్ని ఆఫీలియాన్ (Aphelion) అంటారు." -}}
+    {%- set line = [ heading, ' కక్ష్య లో పెరిహీలియాన్ సూర్యుడికి ', perihelion, ' ఆస్ట్రోనామికల్ యూనిట్లు దూరం లో ఉంటుంది. ' ]|join('') -%}
+    {{ [ line ] | random }} 
+    {%- if is_near_earth == 1 -%}
+        {{- "ఈ దూరం 1.4 ఆస్ట్రోనామికల్ యూనిట్ల కంటే తక్కువ ఉండటం వల్ల దీన్ని నియర్ ఎర్త్ ఆబ్జెక్ట్ గా పరిగణిస్తారు. " -}}
+    {%- endif -%}
+    {%- set line1 = [ 'అలాగే దీని ఆఫీలియాన్ దూరం ', aphelion, ' ఆస్ట్రోనామికల్ యూనిట్లు. ', diameter, ' కిలోమీటర్ల వ్యాసం తో దీని పరిమాణం సుమారు ', size_comparison_object, ' ఉంటుంది. దీని సంపూర్ణ పరిమాణం ([[Absolute Magnitude]]) ', magnitude, '. ']|join('') -%}
+        {{ [ line1 ] | random }}
+    {{- "\n" -}}
+ 
+    {%- if is_potentially_hazardous == 1 -%}
+        {{- "భూమికి దీని కక్ష్య కి దూరం తక్కువ ఉండి, దీని పరిమాణం ఎక్కువగా ఉండటం వల్ల ఇది ప్రమాదకరమైన ([[Potentially Hazardous]]) " -}}
+        {%- if 'గ్రహశకలం' in category -%}
+            {{- " గ్రహశకలం.\n" -}}
+         {%- elif 'తోకచుక్క' in category -%}
+            {{- " తోకచుక్క. \n" -}}      
+        {%- endif -%}
+    
+    {%- elif is_potentially_hazardous == 0 -%}
+        {{- "భూమి కి దీని కక్ష్యానికి తగినంత దూరం ఉండి, దీని పరిమాణం కూడా చిన్నగా ఉండటం వల్ల ఇది ప్రమాదకరమైన ([[Potentially Hazardous]]) " -}}
+        
+        {%- if 'గ్రహశకలం' in category -%}
+            {{- " గ్రహశకలం కాదు. \n" -}}
+         {%- elif 'తోకచుక్క' in category -%}
+            {{- " తోకచుక్క కాదు.\n" -}}     
+        {%- endif -%}
+    {%- endif -%}
+{%- endmacro -%}
+
+
+{%- macro movement_attributes(heading, avg_orbit_speed, orbit_period_days, orbit_period_years, rotation_period) -%}  
+    {{"\n==చలనం==\n\n"}}
+    {{- "గ్రహాలు వాటి కక్ష్యలో సూర్యుని చుట్టూ తిరగడాన్ని పరిభ్రమణం అంటారు. " -}}
+    {%- set line1 = [heading, ' క్షణానికి ', avg_orbit_speed, ' కి.మీ వేగం తో తిరుగుతుంది. దీని కక్ష్య కాలం ', orbit_period_days, ' రోజులు, అంటే సుమారు ', orbit_period_years, ' సంవత్సరాలు.']|join('') -%}
+    {{ [ line1 ] | random }}
+    {%- if rotation_period != '' -%}
+      {{- "గ్రహాలు వాటి అక్షం చుట్టూ అవి తిరగడానికి పట్టే సమయాన్ని భ్రమణ కాలం అంటారు. " -}}
+        {%- set line1 = [ 'ఈ గ్రహశకలాని భ్రమణ కాలం సుమారు ', rotation_period, ' గంటలు. ']|join('') -%}
+        {%- set line2 = [ heading, ' భ్రమణ కాలం సుమారు ', rotation_period, ' గంటలు. ']|join('') -%}
+        {{ [ line1, line2 ] | random }}
+    {%- endif -%}
+{%- endmacro -%}
+
+
+{%- macro position_attributes(heading, semi_major_axis, eccentricity, inclination, ascending_node_longitude, periapsis_argument) -%}
+    {{"\n==కక్ష్య ఆకారం==\n\n"}}
+    {{- "గ్రహాల కక్ష్యలు సాధారణంగా దీర్ఘవృత్త ఆకారంలో ఉంటాయి.  వాటి పొడవు ను సూచించే రేఖని బృహదక్షం (Semi Major Axis) అంటారు. " -}}
+    {{- "వికేంద్రత దీర్ఘవృత్తం వక్రతను నిర్ణయిస్తుంది. ఓ గ్రహం వికేంద్రత 0 నుంచి 1 పరిధి లో ఎంత తక్కువ ఉంటే దాని కక్ష్య ఆకారం అంత గుండ్రంగా, వృత్తానికి దగ్గరగా ఉన్నట్లు లెక్క. అలాగే కక్ష్య సమతలానికి భూమధ్యరేఖకు మధ్య ఏర్పడే కోణాన్ని ఇంక్లినేషన్ అంటారు. " -}}
+    {%- set line1 = [ heading,  'బృహదక్షం పొడవు ', semi_major_axis, ' ఆస్ట్రోనామికల్ యూనిట్లు,',  ' వికేంద్రత ',  eccentricity, ' ,ఇంక్లినేషన్ ', inclination, ' డిగ్రీలు.']|join('') -%}
+    {{ [ line1 ] | random }}
+    {{- '\n' -}}
+    {{- "ఒక గ్రహం ఉత్తరం నుంచి దక్షిణ సమతలానికి దాటే చోటు ని ఆరోహణ స్థానం ([[Ascending Node]]) అంటారు. హెరిహిలియన్ కి ఆరోహణ స్థానానికి మధ్య ఉండే కోణాన్ని ఆర్గుమెంట్ ఆఫ్ పెరియాప్సిస్ అంటారు. " -}}
+    {%- set line2 = [ heading, ' కి దీని రేఖాంశం ', ascending_node_longitude, ' డిగ్రీల దగ్గర ఉండగా, దీని ఆర్గుమెంట్ ఆఫ్ పెరియాప్సిస్ ', periapsis_argument,  ' డిగ్రీలు. ']|join('') -%}
+    {{ [ line2 ] | random }}
+    {{ '\n' }}
+{%- endmacro -%}
+
+
+{%- macro other_attributes(heading,  spectral_type_tholen, spectral_type_smass) -%}
+    {%- if spectral_type_smass != '' and spectral_type_tholen != '' -%}
+    {{"==స్పెక్ట్రల్ వర్గీకరణ==\n\n"}}
+    {%- set line1 = [ heading,  ' తొలెన్ ([[Tholen]]) వర్గీకరణ ప్రకారం ', spectral_type_tholen, ' వర్గానికీ, ఎస్మాస్ ([[SMASS]]) వర్గీకరణ ప్రకారం ', spectral_type_smass, ' వర్గానికి చెందినది. ']|join('') -%}
+    {{ [ line1 ] | random }}
+    {{- '\n' -}}
+    {%- endif -%}
+{%- endmacro -%}
+
+
+{%- macro categories() -%}
+    [[వర్గం: తెవికీ గ్రహాలు ]][[వర్గం: తెవికీ గ్రహశకలాలు]] [[వర్గం: తెవికీ సౌరమండలం]] [[వర్గం: తెవికీ తోకచుక్కలు]]
+{%- endmacro -%}
+
+
+{%- macro ending() -%}
+  {{ '==మూలాలు=='+'\n\n * [https://spacereference.org  స్పేస్ రిఫరెన్స్] \n  * [https://nasa.gov  NASA]\n' }}
+
+{%- endmacro -%}
+
+
+{#- Article written from here -#}
+{{ infobox(heading,name_code,epoch,semi_major_axis,eccentricity,inclination,ascending_node_longitude,aphelion,perihelion,periapsis_argument,mean_anomaly,avg_orbit_speed,orbit_period_days,rotation_period,diameter,magnitude) }}
+{{ intro(heading,category,name_code) }}
+{{ size_attributes(heading, perihelion, aphelion, is_near_earth, is_potentially_hazardous, size_comparison_object, diameter, magnitude, category) }}
+{{ movement_attributes(heading, avg_orbit_speed, orbit_period_days, orbit_period_years, rotation_period) }}
+{{ position_attributes(heading, semi_major_axis, eccentricity, inclination, ascending_node_longitude, periapsis_argument) }}
+{{ other_attributes(heading,  spectral_type_tholen, spectral_type_smass) }}
+{{ ending() }}
+{{ categories() }}
